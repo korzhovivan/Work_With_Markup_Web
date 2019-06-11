@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>AXIT</title>
+
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/media.css">
 
 	<script src="../js/index.js"></script>
-<title>AXIT</title>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Capriola|Fredoka+One|Nunito|Raleway&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -76,10 +81,28 @@
 <div class="second_block">
 	<div class="wrap">
 		<div class="tabs">
-			<div class="tab active" style="margin-bottom: 1px;">TAB 1</div>
-			<div class="tab" style="margin-bottom: 1px;">TAB 2</div>
-			<div class="tab">TAB 3</div>
+			<div onclick="ChangeInfo(event,'1')" class="tab active" style="margin-bottom: 1px;">TAB 1</div>
+			<div onclick="ChangeInfo(event,'2')"  class="tab" style="margin-bottom: 1px;">TAB 2</div>
+			<div onclick="ChangeInfo(event,'3')"  class="tab">TAB 3</div>
 		</div>
+
+		<script>
+			function ChangeInfo(evt,tabNumber) {
+
+				var path = "img/secondBlock_";
+				path+=tabNumber.toString();
+				path+=".png";
+
+				var tabs = document.getElementsByClassName("tab");
+				for (i = 0; i < tabs.length; i++) {
+    				tabs[i].className = tabs[i].className.replace(" active", "");
+    			}
+    			evt.currentTarget.className += " active";
+    			document.getElementById("city-img").src = path;
+			};
+		</script>
+
+
 		<div class="change-content">
 			<p>Tabs with soft transitioning effect.</p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod 
@@ -91,7 +114,9 @@
 			bibendum laoreet.
 
 			<a href="#" class="download-button">Download</a>
+			<img id="city-img" src="img/secondBlock_1.png" alt="Картинка">
 		</div>
+
 	</div>
 </div>
 	
